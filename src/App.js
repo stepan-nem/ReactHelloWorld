@@ -7,6 +7,19 @@ const axios = require('axios');
 function App() {
   const [data, setData] = useState('No data received');
 
+  const postData = () => {
+    axios.post('http://localhost:3039/users/', {
+      name: 'Stevan',
+      surname: 'YesMen'
+    })
+    .then((response) => {
+      setData('WOOOW')
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+
   const retreiveData = () => {
     setData('Retreiving data')
 
@@ -26,6 +39,9 @@ function App() {
         <p>
           Click to retreive data. 
         </p>
+        <button onClick={postData}>
+          Post
+        </button>
         <button onClick={retreiveData}>
           Request
         </button>
