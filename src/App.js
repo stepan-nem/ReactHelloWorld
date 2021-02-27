@@ -21,6 +21,10 @@ function HomePage() {
   return (
     <>
       <p>
+        Write something
+      </p>
+      <input type="text" />
+      <p>
         Move to HTTP page
       </p>
       <button onClick={moveToData}>
