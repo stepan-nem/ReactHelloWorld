@@ -18,6 +18,10 @@ function HomePage() {
     history.push("/data");
   }
 
+  const moveToImage = () => {
+    history.push("/image");
+  }
+
   return (
     <>
       <p>
@@ -28,6 +32,12 @@ function HomePage() {
         Move to HTTP page
       </p>
       <button onClick={moveToData}>
+        GO
+      </button>
+      <p>
+        Move to Image page
+      </p>
+      <button onClick={moveToImage}>
         GO
       </button>
     </>
@@ -91,6 +101,30 @@ function DataPage() {
   );
 }
 
+function ImagePage() {
+  let history = useHistory();
+
+  const moveHome = () => {
+    history.push("/");
+  }
+
+  return (
+    <>
+      <p>
+        <img 
+          src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2021-lamborghini-aventador-mmp-1-1601499002.jpg"
+          alt="Lambo"
+          width="400"
+          height="300"
+        />
+      </p>
+      <button onClick={moveHome}>
+        GO HOME
+      </button>
+    </>
+  );
+}
+
 function App() {
   return (
     <div className="App">
@@ -103,6 +137,9 @@ function App() {
             </Route>
             <Route path="/data">
               <DataPage />
+            </Route>
+            <Route path="/image">
+              <ImagePage />
             </Route>
           </Switch>
         </Router>
